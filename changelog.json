@@ -1,0 +1,448 @@
+[
+  {
+    "version": "0.0.1",
+    "date": "2023-01-01T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Iniciando o desenvolvimento do aplicativo."
+      }
+    ]
+  },
+  {
+    "version": "0.2.20.1-alpha",
+    "date": "2023-11-28T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Correções",
+        "description": "Correções gerais."
+      },
+      {
+        "type": "Alterações",
+        "description": "Agora a versão do aplicativo é exibida na sidebar."
+      },
+      {
+        "type": "Alterações",
+        "description": "Mudanças no método em que pega a versão do aplicativo."
+      }
+    ]
+  },
+  {
+    "version": "0.2.21.1-alpha",
+    "date": "2023-11-28T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Correções",
+        "description": "Correções no arquivo config.ts."
+      },
+      {
+        "type": "Alterações",
+        "description": "Melhoria no design da changelog."
+      }
+    ]
+  },
+  {
+    "version": "0.3.1.1-alpha",
+    "date": "2023-11-28T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Bump",
+        "description": "Bump de versão."
+      },
+      {
+        "type": "Correções",
+        "description": "Correções gerais na página vouchers."
+      },
+      {
+        "type": "Alterações",
+        "description": "Melhorias gerais na página vouchers."
+      },
+      {
+        "type": "Alterações",
+        "description": "Adicionada lógica de impressão em vouchers."
+      }
+    ]
+  },
+  {
+    "version": "0.3.2.1-alpha",
+    "date": "2023-11-28T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Correções",
+        "description": "Corrigido caminho da logo em vouchers."
+      }
+    ]
+  },
+  {
+    "version": "0.4.1.1-alpha",
+    "date": "2023-11-28T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Componente para changelog criado."
+      },
+      {
+        "type": "Alterações",
+        "description": "Changelog movido para a sidebar. (O que há de novo?)"
+      }
+    ]
+  },
+  {
+    "version": "0.4.2.1-alpha",
+    "date": "2023-11-28T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Melhorias no layout das solicitações de carteirinhas."
+      },
+      {
+        "type": "Alterações",
+        "description": "Alteração do botão de status na visualização de solicitações de carteirinhas."
+      },
+      {
+        "type": "Adições",
+        "description": "Botão editar adicionado na visualização de solicitações de carteirinhas."
+      }
+    ]
+  },
+  {
+    "version": "0.4.3.1-alpha",
+    "date": "2023-11-28T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Adicionado item configurações no menu do avatar"
+      },
+      {
+        "type": "Adições",
+        "description": "Adicionado item meu perfil no menu do avatar"
+      }
+    ]
+  },
+  {
+    "version": "0.5.1.1-alpha",
+    "date": "2023-11-29T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Implementação dos temas claro e escuro."
+      },
+      {
+        "type": "Correções",
+        "description": "Melhorias e correções no design em relação aos temas."
+      }
+    ]
+  },
+  {
+    "version": "0.5.2.1-alpha",
+    "date": "2023-11-29T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Página de configurações."
+      },
+      {
+        "type": "Adições",
+        "description": "Seleção de temas nas configurações."
+      }
+    ]
+  },
+  {
+    "version": "0.5.3.1-alpha",
+    "date": "2023-11-29T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Correções",
+        "description": "Correções gerais."
+      }
+    ]
+  },
+  {
+    "version": "0.5.5.1-alpha",
+    "date": "2023-11-29T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Correções",
+        "description": "Correções gerais."
+      },
+      {
+        "type": "Alterações",
+        "description": "Mudança no design da changelog."
+      },
+      {
+        "type": "Alterações",
+        "description": "Mudança no design das solicitações de carteirinhas nas versões mobiles."
+      },
+      {
+        "type": "Alterações",
+        "description": "Melhorias no design em geral."
+      }
+    ]
+  },
+  {
+    "version": "0.5.6.1-alpha",
+    "date": "2023-11-29T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Mudança na logo."
+      }
+    ]
+  },
+  {
+    "version": "0.5.7.1-alpha",
+    "date": "2023-11-29T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Mudanças nas cores dos botões."
+      },
+      {
+        "type": "Adições",
+        "description": "Adicionado icones em botões."
+      }
+    ]
+  },
+  {
+    "version": "0.5.8.1-alpha",
+    "date": "2023-11-29T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Alteração no estilo dos botões."
+      },
+      {
+        "type": "Alterações",
+        "description": "Melhorias na responsividade em dispositivos móveis."
+      },
+      {
+        "type": "Correções",
+        "description": "Corrigido bug na página de login."
+      },
+      {
+        "type": "Adições",
+        "description": "Novas músicas adicionada."
+      }
+    ]
+  },
+  {
+    "version": "0.5.8.1-alpha",
+    "date": "2023-11-29T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Correções",
+        "description": "Correções gerais na resposividade do aplicativo."
+      },
+      {
+        "type": "Correções",
+        "description": "Corrigido redirecionamento de botões."
+      }
+    ]
+  },
+  {
+    "version": "0.6.1.1-alpha",
+    "date": "2023-12-01T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Desenvolvimento da página de suporte iniciada."
+      },
+      {
+        "type": "Correções",
+        "description": "Correções gerais."
+      }
+    ]
+  },
+  {
+    "version": "0.6.2.1-alpha",
+    "date": "2023-12-01T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Adicionado seção suporte na sidebar."
+      },
+      {
+        "type": "Adições",
+        "description": "Nova lib de ícones adicionada."
+      }
+    ]
+  },
+  {
+    "version": "0.7.1.1-alpha",
+    "date": "2023-12-04T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Iniciado o desenvolvimento da página de agendamento."
+      },
+      {
+        "type": "Correções",
+        "description": "Melhorias gerais no sistema."
+      }
+    ]
+  },
+  {
+    "version": "0.7.2.1-alpha",
+    "date": "2023-12-05T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Correções",
+        "description": "Diversos problemas corrigidos."
+      },
+      {
+        "type": "Correções",
+        "description": "Melhoria no visual dos agendamentos."
+      },
+      {
+        "type": "Correções",
+        "description": "Problema no layout dos agendamentos."
+      }
+    ]
+  },
+  {
+    "version": "0.7.3.1-alpha",
+    "date": "2023-12-05T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Correções",
+        "description": "Correções gerais."
+      }
+    ]
+  },
+  {
+    "version": "0.7.4.1-alpha",
+    "date": "2023-12-05T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Correções",
+        "description": "Correções gerais."
+      }
+    ]
+  },
+  {
+    "version": "0.7.5.1-alpha",
+    "date": "2023-12-05T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Preview de carteirinhas."
+      },
+      {
+        "type": "Adições",
+        "description": "Adicionado botão de impressão nos detalhes de carteirinhas."
+      }
+    ]
+  },
+  {
+    "version": "0.8.1.1-alpha",
+    "date": "2023-12-10T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Páginas de suporte refeitas."
+      },
+      {
+        "type": "Correções",
+        "description": "Correções gerais."
+      }
+    ]
+  },
+  {
+    "version": "0.9.1.1-alpha",
+    "date": "2023-12-11T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Adições",
+        "description": "Adicionado Google Analytics."
+      },
+      {
+        "type": "Adições",
+        "description": "Adicionado Vercel Analytics."
+      },
+      {
+        "type": "Adições",
+        "description": "Adicionado Vercel Speed Insights."
+      },
+      {
+        "type": "Correções",
+        "description": "Correções gerais no aplicativo."
+      }
+    ]
+  },
+  {
+    "version": "0.10.1.1-alpha",
+    "date": "2023-12-12T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Atualização de todas as dependências."
+      }
+    ]
+  },
+  {
+    "version": "0.11.1.1-alpha",
+    "date": "2023-12-12T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Adicionado BiomeJs."
+      },
+      {
+        "type": "Remoções",
+        "description": "Removido ESLint."
+      },
+      {
+        "type": "Remoções",
+        "description": "Removido Prettier."
+      }
+    ]
+  },
+  {
+    "version": "0.11.5.1-alpha",
+    "date": "2024-02-07T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Melhoria na responsividade."
+      },
+      {
+        "type": "Alterações",
+        "description": "Mudança no UX Mobile."
+      },
+      {
+        "type": "Correções",
+        "description": "Correções gerais no aplicativo."
+      }
+    ]
+  },
+  {
+    "version": "0.11.6.1-alpha",
+    "date": "2024-02-16T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Alteração nos ícones de SplashScreen."
+      }
+    ]
+  },
+  {
+    "version": "0.11.7.1-alpha",
+    "date": "2024-02-19T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Changelog otimizada para dispositivos mobile."
+      }
+    ]
+  },
+  {
+    "version": "0.11.8",
+    "date": "2024-02-19T00:00:00+00:00",
+    "changes": [
+      {
+        "type": "Alterações",
+        "description": "Refatoração em partes do código."
+      }
+    ]
+  }
+]
