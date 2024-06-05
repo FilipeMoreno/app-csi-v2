@@ -1,0 +1,112 @@
+[
+	{
+		"id": 1,
+		"title": "Love Story",
+		"artist": "Taylor Swift",
+		"url": "/musicas/Taylor%20Swift%20-%20Love%20Story.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	},
+	{
+		"id": 2,
+		"title": "Cruel Summer",
+		"artist": "Taylor Swift",
+		"url": "/musicas/Taylor%20Swift%20-%20Cruel%20Summer.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	},
+	{
+		"id": 3,
+		"title": "Shake It Off",
+		"artist": "Taylor Swift",
+		"url": "/musicas/Shake%20It%20Off.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	},
+	{
+		"id": 4,
+		"title": "Last Kiss",
+		"artist": "Taylor Swift",
+		"url": "/musicas/Last%20Kiss.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	},
+	{
+		"id": 5,
+		"title": "Lover",
+		"artist": "Taylor Swift",
+		"url": "/musicas/Taylor%20Swift%20-%20Lover.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	},
+	{
+		"id": 6,
+		"title": "Invisible String",
+		"artist": "Taylor Swift",
+		"url": "/musicas/Taylor%20Swift%20-%20Invisible%20String.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	},
+	{
+		"id": 7,
+		"title": "Shake It Bololo",
+		"artist": "Desconhecido",
+		"url": "/musicas/Bololo%20Hahaha.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	},
+	{
+		"id": 8,
+		"title": "CPX Ta Tega",
+		"artist": "DJ Noiskita",
+		"url": "/musicas/Noixkita.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	},
+	{
+		"id": 9,
+		"title": "CPX Ato 2",
+		"artist": "DJ Noiskita",
+		"url": "https://cdn.cpx.gg/loadscreen/music.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	},
+	{
+		"id": 10,
+		"title": "Automotivo Bibi Fogosa",
+		"artist": "Bibi Fogosa",
+		"url": "/musicas/Automotivo%20Bibi%20Fogosa.mp3",
+		"artwork": {
+			"src": "/img/tayloy-1989.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	}
+]
