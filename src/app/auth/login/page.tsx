@@ -3,6 +3,7 @@
 import Image from 'next/image'
 
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Suspense } from 'react'
 import { SignInForm } from '../components/sign-in-form'
 
 export default function AuthPage() {
@@ -25,7 +26,9 @@ export default function AuthPage() {
 									Digite suas credencias abaixo para continuar
 								</p>
 							</div>
-							<SignInForm />
+							<Suspense>
+								<SignInForm />
+							</Suspense>
 						</div>
 					</div>
 				</CardContent>
