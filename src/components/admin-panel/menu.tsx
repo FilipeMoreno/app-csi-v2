@@ -30,7 +30,7 @@ export function Menu({ isOpen }: MenuProps) {
 	const pages = getPages(pathname)
 
 	return (
-		<ScrollArea className="[&>div>div[style]]:!block scrollbar scrollbar-track-white">
+		<ScrollArea className="[&>div>div[style]]:!block z-40">
 			<nav className="mt-8 h-full w-full">
 				<ul className="flex min-h-[calc(100vh-48px-36px-16px-32px)] flex-col items-start space-y-1 px-2 lg:min-h-[calc(100vh-32px-40px-32px)]">
 					{pages.map(({ groupLabel, menus, icon: Icon }, index) => (
@@ -139,7 +139,14 @@ export function Menu({ isOpen }: MenuProps) {
 						</div>
 					</>
 				)) || (
-					<div className="flex items-center justify-center">
+					<div className="flex flex-col items-center justify-center">
+						<Image
+							alt="Logo"
+							width={20}
+							height={20}
+							src={'/icons/icon-512x512.png'}
+							className="mb-1"
+						/>
 						<span className="text-xs text-zinc-500">v{config.version}</span>
 					</div>
 				)}

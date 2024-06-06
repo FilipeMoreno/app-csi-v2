@@ -11,6 +11,7 @@ import {
 import 'moment/locale/pt-br'
 import Link from 'next/link'
 
+import HeaderPages from '@/components/HeaderPages'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -89,17 +90,12 @@ export default function CarteirinhasSolicitacoes() {
 	]
 	return (
 		<div className="flex flex-col justify-center">
-			<div className="flex flex-row items-center justify-between">
-				<div>
-					<h1 className="font-bold text-2xl">Solicitações</h1>
-					<p className="text-sm">Mostrando todas as solicitações realizadas</p>
-				</div>
-				<div>
-					<Button variant={'outline'}>
-						<Plus className="mr-2 h-4 w-4" /> Solicitação
-					</Button>
-				</div>
-			</div>
+			<HeaderPages
+				title="Solicitações"
+				description="Mostrando todas as solicitações realizadas"
+				button="Solicitação"
+				buttonLink="/carteirinhas/solicitacoes/nova"
+			/>
 
 			<div className="flex flex-row items-center justify-between space-x-2">
 				<Input className="my-4 w-full" placeholder="Pesquisar" />

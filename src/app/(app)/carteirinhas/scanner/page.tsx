@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import HeaderPages from '@/components/HeaderPages'
 import { toast } from 'sonner'
 import CustomQrScanner from '../components/CustomQrScanner'
 
@@ -33,10 +34,10 @@ export default function CarteirinhasScanner() {
 
 	return (
 		<>
-			<div className="mb-4 flex flex-col">
-				<h1 className="font-bold text-3xl">Scanner</h1>
-				<p>Aponte a câmera para o QR Code</p>
-			</div>
+			<HeaderPages
+				title="Scanner"
+				description="Aponte a câmera para o QR Code"
+			/>
 			<div className="flex flex-wrap gap-8">
 				<div className="h-96 w-full max-w-sm rounded-xl bg-secondary p-4">
 					<CustomQrScanner

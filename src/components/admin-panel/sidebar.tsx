@@ -19,7 +19,7 @@ export function Sidebar() {
 			)}
 		>
 			<SidebarToggle isOpen={sidebar?.isOpen} setIsOpen={sidebar?.setIsOpen} />
-			<div className="relative flex h-full flex-col overflow-y-auto px-3 py-4 shadow-md dark:shadow-zinc-800">
+			<div className="relative z-40 flex h-full flex-col overflow-y-auto px-3 py-4 shadow-md dark:shadow-zinc-800">
 				<Button
 					className={cn(
 						'mb-1 transition-transform duration-300 ease-in-out',

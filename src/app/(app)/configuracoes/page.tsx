@@ -4,6 +4,7 @@ import { Check, Computer, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
+import HeaderPages from '@/components/HeaderPages'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 
@@ -24,13 +25,11 @@ export default function ConfiguracoesHome() {
 	}, [theme])
 
 	return (
-		<div className="space-y-6">
-			<div>
-				<h3 className="font-medium text-lg">Configurações</h3>
-				<p className="text-muted-foreground text-sm">
-					Customize suas configurações de usuário.
-				</p>
-			</div>
+		<div>
+			<HeaderPages
+				title="Configurações"
+				description="Customize suas configurações de usuário."
+			/>
 			<Separator />
 			<div className="space-y-6">
 				<div>

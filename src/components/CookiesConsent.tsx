@@ -24,7 +24,7 @@ export default function CookiesConsent() {
 	}
 	return (
 		<div className="fixed inset-0 bg-zinc-950 bg-opacity-60">
-			<div className="fixed right-0 bottom-0 left-0 flex items-center justify-between rounded-t-lg bg-secondary px-4 py-8">
+			<div className='fixed right-0 bottom-0 left-0 z-50 flex items-center justify-between rounded-t-lg bg-secondary px-4 py-8'>
 				<div className="mx-2 flex flex-row items-center justify-between">
 					<div className="flex flex-col justify-center">
 						<span className="mx-4 flex flex-row items-center font-bold text-xl">

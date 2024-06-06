@@ -15,6 +15,7 @@ import {
 	PlusCircle,
 } from 'lucide-react'
 
+import HeaderPages from '@/components/HeaderPages'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -100,15 +101,13 @@ export default function ChamadosHome() {
 	return (
 		<div className="flex flex-col items-center justify-center">
 			<div className="w-full">
-				<div className="flex flex-row items-center justify-between">
-					<div>
-						<h1 className="font-bold text-2xl">Suporte</h1>
-						<p className="text-sm">Mostrando todos os chamados</p>
-					</div>
-					<Button variant={'outline'}>
-						<PlusCircle className="mr-2 h-4 w-4" /> Novo chamado
-					</Button>
-				</div>
+				<HeaderPages
+					title="Suporte"
+					description="Mostrando todos os chamados"
+					button="Novo chamado"
+					buttonLink="/suporte/novo"
+				/>
+
 				<div className="my-4 flex flex-row items-center space-x-3">
 					<Select>
 						<SelectTrigger className="w-[200px]">

@@ -1,7 +1,12 @@
+import HeaderPages from '@/components/HeaderPages'
+
 export default function Agendamentos() {
 	return (
 		<div>
-			<h1>Agendamentos</h1>
+			<HeaderPages
+				title="Agendamentos"
+				description="Mostrando todos os agendamentos"
+			/>
 		</div>
 	)
 }

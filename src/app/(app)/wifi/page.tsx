@@ -1,5 +1,6 @@
 'use client'
 
+import HeaderPages from '@/components/HeaderPages'
 import { Button } from '@/components/ui/button'
 import {
 	Card,
@@ -64,7 +65,11 @@ export default function Home() {
 	}, [vouchers])
 
 	return (
-		<div className="mt-2 flex flex-col items-center justify-center">
+		<div className="flex flex-col justify-center">
+			<HeaderPages
+				title="WI-FI Vouchers"
+				description="Gere vouchers para acesso de visitantes ao wi-fi"
+			/>
 			<Card className="h-full w-full border-transparent shadow-none">
 				{!vouchers && (
 					<CardHeader>

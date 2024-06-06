@@ -3,6 +3,7 @@
 import { Plus } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
+import HeaderPages from '@/components/HeaderPages'
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -61,10 +62,10 @@ export default function CarteirinhasScannerAcoes() {
 
 	return (
 		<>
-			<div className="mb-4 flex flex-col">
-				<h1 className="font-bold text-3xl">Scanner de ações rápidas</h1>
-				<p>Aponte a câmera para o QR Code para visualizar as ações rápidas</p>
-			</div>
+			<HeaderPages
+				title="Scanner de ações rápidas"
+				description="Aponte a câmera para o QR Code para visualizar as ações rápidas"
+			/>
 			<div className="flex flex-wrap gap-8">
 				<div className="h-96 w-full max-w-sm rounded-xl bg-secondary p-4">
 					<CustomQrScanner
