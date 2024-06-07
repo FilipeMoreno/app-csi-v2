@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
-import { PasswordInput } from '@/components/ui/password-input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
@@ -109,7 +108,7 @@ export function SignInForm() {
 								className={errors.password ? 'border-red-500' : ''}
 							/>
 							<span className="text-red-500 text-xs">
-								{errors.password?.message && (
+								{/* {errors.password?.message && (
 									<ul className="mt-2 text-red-500 text-xs">
 										<span>Sua senha deve conter pelo menos:</span>
 										{Object.keys(errors.password.message).map((m, i) => {
@@ -122,7 +121,7 @@ export function SignInForm() {
 											)
 										})}
 									</ul>
-								)}
+								)} */}
 							</span>
 						</div>
 
