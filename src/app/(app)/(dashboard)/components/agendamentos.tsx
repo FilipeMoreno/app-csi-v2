@@ -7,13 +7,14 @@ import {
 	CardTitle,
 } from '@/components/ui/card'
 import { FaCheck, FaCircleCheck } from 'react-icons/fa6'
+import ConfirarAgendamento from './confirmar-agendamento'
 
 export default function DashboardAgendamentos() {
 	return (
 		<Card>
 			<CardHeader>
 				<CardTitle className="font-bold text-xl uppercase">
-					Meus agendamentos
+					Meus agendamentos (2)
 				</CardTitle>
 				<CardDescription>Mostrando todos os agendamentos</CardDescription>
 			</CardHeader>
@@ -71,7 +72,7 @@ export default function DashboardAgendamentos() {
 								</div>
 							</div>
 							<div className="flex flex-row gap-2">
-								<Button className="w-full ">Confirmar</Button>
+								<ConfirarAgendamento />
 								<Button variant={'destructive'} className="w-full">
 									Cancelar
 								</Button>

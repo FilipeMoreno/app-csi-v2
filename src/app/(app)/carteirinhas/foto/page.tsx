@@ -2,10 +2,11 @@
 
 import { RefreshCcw } from 'lucide-react'
 import Image from 'next/image'
-import React, { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import Webcam from 'react-webcam'
 
 import { Button } from '@/components/ui/button'
+import { useRouter } from 'next/navigation'
 
 export default function CarteirinhasFoto() {
 	const webcamRef = useRef<Webcam>(null)
@@ -14,6 +15,8 @@ export default function CarteirinhasFoto() {
 		'environment',
 	)
 	const [flash, setFlash] = useState(false)
+
+	const route = useRouter()
 
 	const videoConstraints = {
 		width: 1920,
@@ -86,6 +89,13 @@ export default function CarteirinhasFoto() {
 					</div>
 				</div>
 			)}
+			<Button
+				variant={'outline'}
+				className="my-2 w-full"
+				onClick={() => route.back()}
+			>
+				Voltar
+			</Button>
 		</div>
 	)
 }

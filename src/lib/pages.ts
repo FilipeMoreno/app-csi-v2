@@ -1,7 +1,9 @@
 import {
+	ArrowLeftRight,
 	CalendarDays,
 	Clock,
 	CreditCard,
+	FolderOutput,
 	Headset,
 	Home,
 	LayoutDashboard,
@@ -76,6 +78,19 @@ export function getPages(pathname: string): Group[] {
 			],
 		},
 		{
+			groupLabel: 'Empréstimos',
+			icon: ArrowLeftRight,
+			menus: [
+				{
+					href: '/emprestimos',
+					label: 'Empréstimos',
+					active: pathname.includes('/emprestimos'),
+					icon: FolderOutput,
+					submenus: [],
+				},
+			],
+		},
+		{
 			groupLabel: 'Carteirinhas',
 			icon: CreditCard,
 			menus: [
@@ -91,7 +106,18 @@ export function getPages(pathname: string): Group[] {
 					label: 'Scanner',
 					active: pathname.includes('/carteirinhas/scanner/acoes'),
 					icon: ScanLine,
-					submenus: [],
+					submenus: [
+						{
+							active: pathname.includes('/carteirinhas/scanner/acoes'),
+							href: '/carteirinhas/scanner/acoes',
+							label: 'Ações Rápidas',
+						},
+						{
+							active: pathname.includes('/carteirinhas/scanner'),
+							href: '/carteirinhas/scanner/',
+							label: 'QR Code',
+						},
+					],
 				},
 			],
 		},
