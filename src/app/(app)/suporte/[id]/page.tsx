@@ -6,7 +6,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
 import {
 	Select,
 	SelectContent,
@@ -16,6 +15,7 @@ import {
 	SelectValue,
 } from '@/components/ui/select'
 
+import Tiptap from '@/components/Tiptap'
 import { Link, PaperclipIcon, SendHorizonal, SmileIcon } from 'lucide-react'
 
 export default function ChamadosDetalhes() {
@@ -52,75 +52,46 @@ export default function ChamadosDetalhes() {
 									<AvatarFallback>
 										<SmileIcon />
 									</AvatarFallback>
-									<AvatarImage src="/icons/icon.png" />
+									<AvatarImage src="https://github.com/filipemoreno.png" />
 								</Avatar>
 							</div>
 							<div className="flex flex-col space-y-1">
-								<div className="rounded-lg bg-secondary p-2">
-									<span className="flex font-bold text-[10px] text-zinc-400">
-										Usuário
+								<div className="rounded-lg p-2">
+									<span className="flex font-bold text-xs text-zinc-400">
+										<b className="mr-1">Filipe Moreno</b> • 01/01/2024 às 00:00
 									</span>
+
 									<p className="text-sm">
 										Preciso de ajuda! O computador na sala 1 parou de funcionar.
 									</p>
-									<span className="flex justify-end text-[10px] text-zinc-400">
-										01/01/2024 às 00:00
-									</span>
 								</div>
 							</div>
 						</div>
-						<div className="flex items-end justify-end gap-2">
-							<div className="flex flex-col space-y-1">
-								<div className="rounded-lg bg-tertiary p-2 text-white">
-									<span className="flex font-bold text-[10px] text-zinc-300">
-										Usuário
-									</span>
-									<p className="text-sm">Resolvido!</p>
-									<span className="flex justify-end text-[10px] text-zinc-300">
-										01/01/2024 às 00:00
-									</span>
-								</div>
-							</div>
+						<div className="flex items-end gap-2">
 							<div className="flex items-center justify-center">
 								<Avatar>
 									<AvatarFallback>
 										<SmileIcon />
 									</AvatarFallback>
-									<AvatarImage src="/icons/icon.png" />
+									<AvatarImage src="https://github.com/nextjs.png" />
 								</Avatar>
 							</div>
-						</div>
-						<div className="flex items-end justify-end gap-2">
 							<div className="flex flex-col space-y-1">
-								<div className="rounded-lg bg-tertiary p-2 text-white">
-									<span className="flex font-bold text-[10px] text-zinc-300">
-										Usuário
+								<div className="rounded-lg p-2">
+									<span className="flex font-bold text-xs text-zinc-400">
+										<b className="mr-1">Suporte</b> • 01/01/2024 às 00:00
 									</span>
-									<p className="text-sm">
-										Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-										Sunt reprehenderit a culpa eligendi voluptas at. Temporibus
-										ipsum architecto repellat non. Quasi, aperiam iste. Sapiente
-										qui optio repudiandae amet adipisci nesciunt!
-									</p>
-									<span className="flex justify-end text-[10px] text-zinc-300">
-										01/01/2024 às 00:00
-									</span>
+
+									<p className="text-sm">Tente ligar na tomada!</p>
 								</div>
 							</div>
-							<div className="flex items-center justify-center">
-								<Avatar>
-									<AvatarFallback>
-										<SmileIcon />
-									</AvatarFallback>
-									<AvatarImage src="/icons/icon.png" />
-								</Avatar>
-							</div>
 						</div>
+
 						<div className="flex items-end justify-end gap-2">
 							<div className="flex flex-col space-y-1">
 								<div className="rounded-lg border border-tertiary bg-transparent p-2 text-primary">
 									<span className="flex font-bold text-[10px] text-zinc-400">
-										Nota privada - Usuário
+										Nota privada - Suporte
 									</span>
 									<p className="text-sm">
 										Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -128,25 +99,18 @@ export default function ChamadosDetalhes() {
 										ipsum architecto repellat non. Quasi, aperiam iste. Sapiente
 										qui optio repudiandae amet adipisci nesciunt!
 									</p>
-									<span className="flex justify-end text-[10px] text-zinc-400">
+									<span className="mt-1 flex justify-start text-[10px] text-zinc-400">
 										01/01/2024 às 00:00
 									</span>
 								</div>
-							</div>
-							<div className="flex items-center justify-center">
-								<Avatar>
-									<AvatarFallback>
-										<SmileIcon />
-									</AvatarFallback>
-									<AvatarImage src="/icons/icon.png" />
-								</Avatar>
 							</div>
 						</div>
 					</div>
 				</main>
 				<footer className="rounded-lg p-4">
 					<div className="flex items-end gap-2">
-						<Input className="flex-1 " placeholder="Digite sua mensagem..." />
+						<Tiptap />
+
 						<Button variant={'ghost'} size={'icon'}>
 							<PaperclipIcon className="h-4 w-4" />
 						</Button>
