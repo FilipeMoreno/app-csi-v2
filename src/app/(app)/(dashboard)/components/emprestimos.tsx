@@ -6,13 +6,14 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card'
+import DevolverEmprestimo from './devolver-emprestimo'
 
 export default function DashboardEmprestimos() {
 	return (
 		<Card>
 			<CardHeader>
 				<CardTitle className="font-bold text-xl uppercase">
-					Meus empréstimos
+					Meus empréstimos (1)
 				</CardTitle>
 				<CardDescription>Mostrando todos os empréstimos ativos</CardDescription>
 			</CardHeader>
@@ -36,7 +37,7 @@ export default function DashboardEmprestimos() {
 									<span>01/01/2024 às 00:00</span>
 								</div>
 								<div>
-									<Button className="w-full">Devolver</Button>
+									<DevolverEmprestimo />
 								</div>
 							</div>
 						</CardHeader>

@@ -16,7 +16,7 @@ export function Navbar() {
 				<div className="flex flex-1 items-center justify-end space-x-2">
 					<ModeToggle />
 					<Notifications />
-					<UserNav />
+					{/* <UserNav /> */}
 				</div>
 			</div>
 		</header>
