@@ -68,7 +68,7 @@ export default function AgendamentosInformatica() {
 									<div className="flex h-10 w-full rounded bg-green-300 p-2">
 										<div className="flex flex-col">
 											<p className="font-bold text-xs">1º ANO A</p>
-											<p className="font-light text-xs">10:35 > 11:20</p>
+											<p className="font-light text-xs">10:35 {'>'} 11:20</p>
 										</div>
 									</div>
 								) : null}
