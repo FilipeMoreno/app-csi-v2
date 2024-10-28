@@ -1,36 +1,12 @@
 'use client'
 
-import {
-	EyeIcon,
-	FilterIcon,
-	MoreHorizontal,
-	Plus,
-	ScanLine,
-	Trash2,
-} from 'lucide-react'
+import { FilterIcon, ScanLine } from 'lucide-react'
 import 'moment/locale/pt-br'
 import Link from 'next/link'
 
 import HeaderPages from '@/components/HeaderPages'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
-import {
-	Pagination,
-	PaginationContent,
-	PaginationEllipsis,
-	PaginationItem,
-	PaginationLink,
-	PaginationNext,
-	PaginationPrevious,
-} from '@/components/ui/pagination'
 import {
 	Select,
 	SelectContent,
@@ -48,6 +24,9 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet'
+import { useState } from 'react'
+import { SolicitacaoCard } from './components/SolicitacaoCard'
+import SolicitacaoPaginacao from './components/SolicitacaoPaginacao'
 
 export default function CarteirinhasSolicitacoes() {
 	const solicitacoes = [
@@ -88,6 +67,7 @@ export default function CarteirinhasSolicitacoes() {
 			createdAt: '2021-08-01',
 		},
 	]
+
 	return (
 		<div className="flex flex-col justify-center">
 			<HeaderPages
@@ -182,86 +162,13 @@ export default function CarteirinhasSolicitacoes() {
 					</SheetContent>
 				</Sheet>
 			</div>
-
-			<Card>
-				<CardHeader>
-					<CardTitle>
-						<div className="flex items-center space-x-2 text-lg uppercase">
-							<span className="font-bold">Nome do aluno</span>
-							<Badge variant={'outline'} className="bg-orange-600 text-white">
-								Novo
-							</Badge>
-						</div>
-					</CardTitle>
-				</CardHeader>
-				<CardContent>
-					<div className="flex flex-row flex-wrap items-center justify-between gap-y-4 lg:gap-4 md:gap-2">
-						<div className="flex flex-col">
-							<p className="text-sm">Série/Turma</p>
-							<p className="font-bold text-base">6º ANO A</p>
-						</div>
-						<div className="flex flex-col">
-							<p className="text-sm">Curso</p>
-							<p className="font-bold text-base">Ensino Fundamental II</p>
-						</div>
-						<div className="flex flex-col">
-							<p className="text-sm">Data</p>
-							<p className="font-bold text-base">01/08/2021</p>
-						</div>
-						<div className="flex flex-col">
-							<p className="text-sm">Status</p>
-							<Badge variant={'outline'} className="bg-green-800 font-bold">
-								Entregue
-							</Badge>
-						</div>
-						<div className="flex flex-col">
-							<div className="flex flex-row space-x-2">
-								<Link href={'/carteirinhas/solicitacoes/1'}>
-									<Button variant={'outline'} size={'icon'}>
-										<EyeIcon className="h-4 w-4" />
-									</Button>
-								</Link>
-								<DropdownMenu>
-									<DropdownMenuTrigger asChild>
-										<Button variant={'outline'} size={'icon'}>
-											<MoreHorizontal className="h-4 w-4" />
-										</Button>
-									</DropdownMenuTrigger>
-									<DropdownMenuContent>
-										<DropdownMenuItem>
-											<Trash2 className="mr-2 h-4 w-4" /> Excluir
-										</DropdownMenuItem>
-									</DropdownMenuContent>
-								</DropdownMenu>
-							</div>
-						</div>
-					</div>
-				</CardContent>
-			</Card>
-			<Pagination className="mt-2">
-				<PaginationContent>
-					<PaginationItem>
-						<PaginationPrevious href="#" />
-					</PaginationItem>
-					<PaginationItem>
-						<PaginationLink href="#" isActive>
-							1
-						</PaginationLink>
-					</PaginationItem>
-					<PaginationItem>
-						<PaginationLink href="#">2</PaginationLink>
-					</PaginationItem>
-					<PaginationItem>
-						<PaginationLink href="#">3</PaginationLink>
-					</PaginationItem>
-					<PaginationItem>
-						<PaginationEllipsis />
-					</PaginationItem>
-					<PaginationItem>
-						<PaginationNext href="#" />
-					</PaginationItem>
-				</PaginationContent>
-			</Pagination>
+			<SolicitacaoPaginacao
+				items={solicitacoes}
+				renderItem={(solicitacao) => (
+					<SolicitacaoCard key={solicitacao.id} solicitacao={solicitacao} />
+				)}
+				itemsPerPage={10}
+			/>
 		</div>
 	)
 }

@@ -10,42 +10,20 @@ import {
 	TrackNextIcon,
 	TrackPreviousIcon,
 } from '@radix-ui/react-icons'
-import {
-	CheckIcon,
-	Plus,
-	Save,
-	Trash2Icon,
-	Volume1Icon,
-	Volume2Icon,
-	VolumeIcon,
-	VolumeXIcon,
-} from 'lucide-react'
+import { Volume1Icon, Volume2Icon, VolumeIcon, VolumeXIcon } from 'lucide-react'
 
-import { Player } from '@lottiefiles/react-lottie-player'
-
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Separator } from '@/components/ui/separator'
-import { Switch } from '@/components/ui/switch'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { FaSpinner } from 'react-icons/fa6'
 import { AudioSeekBar } from './components/AudioSeekBar'
 import { TimeLabel } from './components/AudioTimeLabel'
 
 import HeaderPages from '@/components/HeaderPages'
 import { Button } from '@/components/ui/button'
-import horarios from './horarios.json'
-import songsJson from './musicas.json'
+import { database } from '@/lib/firebaseService'
+import { get, ref, set } from 'firebase/database'
+import ConfiguracoesSinal from './components/Configuracoes'
 import HorariosSinaleiro from './components/Horarios'
+import MusicasSinal from './components/Musicas'
+import songsJson from './musicas.json'
 
 export default function SinaleiroHome() {
 	const [volumeValue, setVolumeValue] = useState(0.5)
@@ -61,6 +39,7 @@ export default function SinaleiroHome() {
 		}
 		return 1
 	})
+
 	const [currentSeekPosition, setCurrentSeekPosition] = useState(() => {
 		if (typeof window !== 'undefined') {
 			const seekPosition = localStorage.getItem('music_pos')
@@ -68,8 +47,44 @@ export default function SinaleiroHome() {
 		}
 		return 1
 	})
-	const [modoAleatorio, setModoAleatorio] = useState(false)
-	const [mostrarControles, setMostrarControles] = useState(true)
+
+	const [modoAleatorio, setModoAleatorio] = useState()
+	const [mostrarControles, setMostrarControles] = useState()
+
+	useEffect(() => {
+		const fetchConfig = async () => {
+			try {
+				const configRef = ref(database, 'sinal/configuracoes')
+				const snapshot = await get(configRef)
+				if (snapshot.exists()) {
+					const config = snapshot.val()
+					setMostrarControles(config.mostrarControles)
+					setModoAleatorio(config.modoAleatorio)
+				}
+			} catch (error) {
+				console.error('Erro ao buscar configurações:', error)
+			}
+		}
+
+		fetchConfig()
+	}, [])
+
+	useEffect(() => {
+		const saveConfig = async () => {
+			try {
+				const configRef = ref(database, 'sinal/configuracoes')
+				await set(configRef, {
+					mostrarControles,
+					modoAleatorio,
+				})
+				console.log('Configurações salvas com sucesso!')
+			} catch (error) {
+				console.error('Erro ao salvar configurações:', error)
+			}
+		}
+
+		saveConfig()
+	}, [mostrarControles, modoAleatorio])
 
 	const { load, play, pause, setVolume, playing, seek } = useGlobalAudioPlayer()
 
@@ -123,39 +138,50 @@ export default function SinaleiroHome() {
 
 	async function verifySchedulers() {
 		const today = new Date()
-		const dayOfWeek = today.toLocaleDateString('pt-BR', {
-			weekday: 'long',
-		})
+		const dayOfWeek = today
+			.toLocaleDateString('pt-BR', { weekday: 'long' })
+			.toLowerCase()
 		const timeString = today.toLocaleTimeString('pt-BR', {
 			hour: '2-digit',
 			minute: '2-digit',
 		})
-		const getHorarios = Object.entries(horarios)
-		const getHorariosDia = getHorarios.find(([dia]) => dia === dayOfWeek)
-		const getHorariosDiaHorario = getHorariosDia?.[1].find(
-			(horario) => horario.horario === timeString,
-		)
 
-		console.log(
-			getHorariosDiaHorario ||
-				`Não há horário para este momento. (${dayOfWeek} - ${timeString})`,
-		)
+		try {
+			// Refere-se ao caminho dos horários no Firebase
+			const scheduleRef = ref(database, `sinal/horarios/${dayOfWeek}`)
+			const snapshot = await get(scheduleRef)
 
-		if (!getHorariosDiaHorario) {
-			return
+			if (!snapshot.exists()) {
+				console.log(`Não há horários para ${dayOfWeek}.`)
+				return
+			}
+
+			const horariosDia = snapshot.val()
+			const horarioAtual = Object.values(horariosDia).find(
+				(horario: any) => horario.horario === timeString,
+			)
+
+			if (!horarioAtual) {
+				console.log(
+					`Não há horário para este momento. (${dayOfWeek} - ${timeString})`,
+				)
+				return
+			}
+
+			const duracao = horarioAtual.duracao
+
+			if (!playing) {
+				playMusic()
+				setAutoPlay(true)
+			}
+
+			setTimeout(() => {
+				pause()
+				setAutoPlay(false)
+			}, duracao * 1000)
+		} catch (error) {
+			console.error('Erro ao buscar horários do Firebase:', error)
 		}
-
-		const duracao = getHorariosDiaHorario.duracao
-
-		if (!playing) {
-			playMusic()
-			setAutoPlay(true)
-		}
-
-		setTimeout(() => {
-			pause()
-			setAutoPlay(false)
-		}, duracao * 1000)
 	}
 
 	async function playMusic() {
@@ -268,7 +294,6 @@ export default function SinaleiroHome() {
 		setCurrentSeekPosition(0)
 
 		setLoadMusic(true)
-
 		const currentIndex = musicResults.findIndex((song) => song.id === id)
 
 		setCurrentSongId(musicResults[currentIndex].id)
@@ -314,7 +339,7 @@ export default function SinaleiroHome() {
 								{volumeValue === 0 && (
 									<VolumeXIcon
 										onClick={muteMusica}
-										className=" mr-2 cursor-pointer text-red-500"
+										className="mr-2 cursor-pointer text-red-500"
 									/>
 								)}
 								{volumeValue < 0.2 && volumeValue > 0 && (
@@ -365,170 +390,27 @@ export default function SinaleiroHome() {
 						<TabsTrigger value="config">Configurações</TabsTrigger>
 					</TabsList>
 					<TabsContent value="musicas">
-						<Card>
-							<CardHeader>
-								<CardTitle>Lista de músicas</CardTitle>
-								<div className="flex flex-row items-center justify-between">
-									<CardDescription>
-										Mostrando músicas disponíveis
-									</CardDescription>
-									<Button variant="outline">
-										<Plus className="mr-2 h-4 w-4" /> Música
-									</Button>
-								</div>
-							</CardHeader>
-							<CardContent>
-								<Input
-									placeholder="Pesquisar uma música..."
-									onChange={handleInputChange}
-								/>
-								<ScrollArea className="my-4 h-96 w-full">
-									{musicResults.length === 0 && (
-										<div>
-											<h1 className="text-center text-sm ">
-												nenhum resultado encontrado.
-											</h1>
-										</div>
-									)}
-									{loadMusic && (
-										<div className="absolute h-full w-full rounded-lg bg-secondary opacity-60">
-											<FaSpinner
-												style={{
-													position: 'absolute',
-													top: '0',
-													left: '0',
-													right: '0',
-													bottom: '0',
-													margin: 'auto',
-												}}
-												className="h-16 w-16 animate-spin text-primary"
-											/>
-										</div>
-									)}
-
-									<ul className="space-y-2">
-										{musicResults.flatMap((song) =>
-											song.id === tocandoAgora ? (
-												<li
-													key={song.id}
-													className="flex flex-row items-center space-x-2 rounded-lg bg-secondary p-4 hover:cursor-pointer hover:bg-opacity-40"
-													onClick={() => {
-														selectMusic(song.id)
-													}}
-												>
-													{(playing && (
-														<Player
-															autoplay
-															loop
-															src="/lottie/audio-wave.json"
-															style={{
-																height: '20px',
-																width: '20px',
-																color: 'green',
-															}}
-														/>
-													)) || <p>{song.id}.</p>}
-													{(playing && (
-														<span className="text-green-500">
-															<b>
-																{song.title} - {song.artist}
-															</b>
-														</span>
-													)) || (
-														<b>
-															{song.title} - {song.artist}
-														</b>
-													)}
-
-													{!mostrarControles && <TimeLabel id={1} />}
-												</li>
-											) : (
-												<li
-													key={song.id}
-													className="flex flex-row space-x-2 rounded-lg border border-secondary p-4 hover:cursor-pointer hover:bg-secondary hover:bg-opacity-40"
-													onClick={() => {
-														selectMusic(song.id)
-													}}
-												>
-													<p>{song.id}.</p>
-													<p>
-														{song.title} - {song.artist}
-													</p>
-												</li>
-											),
-										)}
-									</ul>
-								</ScrollArea>
-							</CardContent>
-						</Card>
+						<MusicasSinal
+							musicResults={musicResults}
+							setMusicResults={setMusicResults}
+							handleInputChange={handleInputChange}
+							selectMusic={selectMusic}
+							tocandoAgora={tocandoAgora}
+							loadMusic={loadMusic}
+							playing={playing}
+							mostrarControles={mostrarControles}
+						/>
 					</TabsContent>
 					<TabsContent value="horarios">
 						<HorariosSinaleiro />
 					</TabsContent>
 					<TabsContent value="config">
-						<Card>
-							<CardHeader>
-								<CardTitle>Configurações</CardTitle>
-								<CardDescription>
-									Mostrando as configurações do sistema.
-								</CardDescription>
-							</CardHeader>
-							<CardContent className="grid gap-6">
-								<Separator />
-								<div className="flex items-center justify-between space-x-2">
-									<Label
-										htmlFor="necessary"
-										className="flex flex-col space-y-1"
-									>
-										<span>Controle manual</span>
-										<span className="font-normal text-muted-foreground leading-snug">
-											Exibe os controles de música na tela
-										</span>
-									</Label>
-									{(mostrarControles && (
-										<Switch
-											id="controles"
-											checked
-											onClick={() => setMostrarControles(false)}
-										/>
-									)) || (
-										<Switch
-											id="controles"
-											onClick={() => setMostrarControles(true)}
-										/>
-									)}
-								</div>
-								<div className="flex items-center justify-between space-x-2">
-									<Label
-										htmlFor="necessary"
-										className="flex flex-col space-y-1"
-									>
-										<span>Modo aleatório</span>
-										<span className="font-normal text-muted-foreground leading-snug">
-											Toque as músicas em ordem aleatória
-										</span>
-									</Label>
-									{(modoAleatorio && (
-										<Switch
-											id="aleatorio"
-											checked
-											onClick={() => setModoAleatorio(false)}
-										/>
-									)) || (
-										<Switch
-											id="aleatorio"
-											onClick={() => setModoAleatorio(true)}
-										/>
-									)}
-								</div>
-							</CardContent>
-							<CardFooter>
-								<Button variant="outline" className="w-full">
-									<Save className="mr-2 h-4 w-4" />
-									Salvar
-								</Button>
-							</CardFooter>
-						</Card>
+						<ConfiguracoesSinal
+							mostrarControles={mostrarControles}
+							setMostrarControles={setMostrarControles}
+							modoAleatorio={modoAleatorio}
+							setModoAleatorio={setModoAleatorio}
+						/>
 					</TabsContent>
 				</Tabs>
 			</div>

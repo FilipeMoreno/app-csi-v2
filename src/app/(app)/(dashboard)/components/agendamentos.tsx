@@ -6,7 +6,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card'
-import { FaCheck, FaCircleCheck } from 'react-icons/fa6'
+import { FaCircleCheck } from 'react-icons/fa6'
 
 export default function DashboardAgendamentos() {
 	return (
@@ -42,7 +42,7 @@ export default function DashboardAgendamentos() {
 								</div>
 							</div>
 							<div className="flex flex-row gap-2">
-								<Button variant={'success'} className="w-full" disabled>
+								<Button variant={'secondary'} className="w-full" disabled>
 									<FaCircleCheck className="mr-2" /> Confirmado
 								</Button>
 							</div>

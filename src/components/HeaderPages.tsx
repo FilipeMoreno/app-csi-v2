@@ -8,7 +8,7 @@ export default function HeaderPages({
 	buttonLink,
 }: {
 	title: string
-	description: string
+	description?: string
 	button?: string
 	buttonLink?: string
 }) {

@@ -7,7 +7,17 @@ export const metadata: Metadata = {
 
 export default function OfflineLayout({ children }: { children: ReactNode }) {
 	return (
-		<div className="flex h-screen flex-col items-center justify-center gap-12 bg-background">
+		<div
+			style={{
+				display: 'flex',
+				height: '100vh',
+				flexDirection: 'column',
+				alignItems: 'center',
+				justifyContent: 'center',
+				gap: '3rem',
+				backgroundColor: '#F9FAFB',
+			}}
+		>
 			{children}
 		</div>
 	)
