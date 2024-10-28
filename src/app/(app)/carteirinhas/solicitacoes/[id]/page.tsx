@@ -339,11 +339,12 @@ export default function CarteirinhasDetalhes() {
 						<h1 className="font-bold text-xl">Carteirinha</h1>
 						<span>Mostrando a carteirinha</span>
 					</div>
-					<ReactToPrint
+					{/* TODO: Corrigir ReactToPrint */}
+					{/* <ReactToPrint
 						trigger={() => <Button variant={'outline'}>Imprimir</Button>}
 						content={() => componentRef.current || null}
 						pageStyle={pagestyle}
-					/>
+					/> */}
 				</div>
 				<div
 					ref={componentRef as unknown as LegacyRef<HTMLDivElement>}
